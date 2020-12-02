@@ -21,6 +21,11 @@ config :chat_vue, ChatVueWeb.Endpoint,
     ]
   ]
 
+
+
+config :chat_vue, :client_id, "elastic"
+config :chat_vue, :client_secret, "Y2wzbfkPOI34SzODkol7kw46"
+
 # ## SSL Support
 #
 # In order to use HTTPS in development, a self-signed

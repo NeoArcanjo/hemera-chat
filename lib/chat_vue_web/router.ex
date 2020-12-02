@@ -16,7 +16,7 @@ defmodule ChatVueWeb.Router do
   scope "/", ChatVueWeb do
     pipe_through :browser
 
-    get "/", PageController, :index
+    get "/:aula/:user/:professor", PageController, :index
 
     post "/", PageController, :choice
     # get "/aula", PageController, :index

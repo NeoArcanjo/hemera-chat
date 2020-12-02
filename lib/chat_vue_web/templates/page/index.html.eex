@@ -1,19 +1,39 @@
-<h2>The chat PI</h2>
+<h2>chat Geral</h2>
 <div id="chat-box">
-  <%= for message <- @messages do %>
-    <p><b><%= message.name %>:</b> <%= message.body %></p>
-  <% end %>
+  <%= for message <- @messages do %> 
+  <% IO.puts "não não" %>
+  <% IO.inspect @messages %> 
+    <%= if message.remetent_prof do %>
+      <p ><b style="color: blue"><%= message.name %>:</b> <%= message.body %>  <small style="margin-left: 20px;"><%= message.time %> </small> </p>    
+    <% else %>
+      <p ><b ><%= message.name %>:</b> <%= message.body %>  <small style="margin-left: 20px;" ><%= message.time %></small>   </p>    
+    <% end %>   
+
+  <% end %> 
 </div>
 
 <form id="chat-form">
-  <input type="text" placeholder="Username" id="user-name"></input>
-  <textarea placeholder="Your comment" id="user-msg"></textarea>
+  <textarea placeholder="Your comment" id="user-msg" required ></textarea>
   <button type="submit">Post</button>
 </form>
 
-<div style="display: flex;  justify-content: center;">
+
+<div>
+  <h3>Chat professor</h3>
+  <div id="chat_prof" style="margin: 10px 0;">
+    <%= for message1 <- @message_prof do %>
+    <% IO.puts "asdasdasas" %>
+      <% IO.inspect @message_prof %> 
+      <p><b><%= message1.name %>:</b> <%= message1.body %> <small style="margin-left: 20px;"> <%= message1.time %> </small> </p>
+
+      
+    <% end %>
+  
+  </div>
 
 
-  <button id="find-chat" type="button">send</button>
-  <input style=" margin-left: 5px;   width: 50%;" type="text" id="choice-channel">
+  <form id="btn" style="">
+    <textarea placeholder="Your comment" id="user-msg-btn" required></textarea>
+    <button type="submit">Post</button>
+  </form>
 </div>

@@ -1,7 +1,7 @@
 // We need to import the CSS so that webpack will load it.
 // The MiniCssExtractPlugin is used to separate it out into
 // its own CSS file.
-import "../css/app.scss"
+import "../css/app.css"
 
 // webpack automatically bundles all modules in your
 // entry points. Those entry points can be configured
@@ -17,19 +17,22 @@ import "phoenix_html"
 import socket from "./socket"
 
 import Chat from "./chat"
+import Chat_second from "./chat_second"
 
-let findChat = document.querySelector("#find-chat");
-let choiceChannel= document.querySelector("#choice-channel");
+let url_atual = window.location.href;
+url_atual= url_atual.replace("http://localhost:4000").split("/")
 
+console.log(url_atual[2])
+console.log(url_atual[3])
 
-findChat.addEventListener('click', (e) => {
-  alert("chat liberado");
-
-  let channel = "chat_people:" + choiceChannel.value;
+if(url_atual[2] == url_atual[3]) 
+  document.getElementById('btn').style.display = 'block';
+else
+  document.getElementById('btn').style.display = 'none';
   
 
-  Chat.init(socket, channel)
+let channel = "chat_people:" + url_atual[1] + url_atual[3]; 
 
-  
-})
+Chat.init(socket, channel)
 
+Chat_second.init(socket, "chat_people:professor")
