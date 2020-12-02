@@ -8,6 +8,8 @@ npm rum deploy --prefix ./assets
 mix phx.digest
 
 rm -rf "_build"
+# MIX_ENV=prod mix release.init
+
 MIX_ENV=prod mix release
 
 
